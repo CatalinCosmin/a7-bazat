@@ -21,4 +21,7 @@ class Expense:
 
     __repr__ = __str__
 
+    def __eq__(self, other):
+        return self.day == other.day and self.amount == other.amount and self.type == other.type
+
     pass

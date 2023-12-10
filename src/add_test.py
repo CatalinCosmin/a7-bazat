@@ -15,7 +15,15 @@ class MyTestCase(unittest.TestCase):
 
         self.__repo.add_expense(ex)
 
-        self.assertEqual(self.__repo.get_all(), result)
+        self.assertListEqual(self.__repo.get_all(), result)
+
+    def test_add_services(self):
+        ex = Expense(1, 1, "test")
+        result = [ex]
+
+        self.__services.add_expense(ex.day, ex.amount, ex.type)
+
+        self.assertEqual(self.__services.list_all(), result)
 
 
 if __name__ == '__main__':
